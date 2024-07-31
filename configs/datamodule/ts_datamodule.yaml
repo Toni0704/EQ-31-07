@@ -1,0 +1,48 @@
+_target_: src.datamodules.time_datamodule.TimeDataModule
+
+# data_dir: ${paths.data_dir}/syn_10percent
+# data_dir: ${paths.data_dir}/syn_10percent_snr20
+# data_dir: ${paths.data_dir}/syn_10percent_snr15
+# data_dir: ${paths.data_dir}/syn_10percent_snr10
+# data_dir: ${paths.data_dir}/syn_10percent_snr5
+
+data_dir: ${paths.data_dir}/earth_500_45
+# data_dir: ${paths.data_dir}/Blink
+# data_dir: ${paths.data_dir}/CBF
+# data_dir: ${paths.data_dir}/ECG
+# data_dir: ${paths.data_dir}/ElectricDevices
+# data_dir: ${paths.data_dir}/EMOPain
+# data_dir: ${paths.data_dir}/FordA
+# data_dir: ${paths.data_dir}/FreezerRegularTrain
+# data_dir: ${paths.data_dir}/GunPointAgeSpan
+# data_dir: ${paths.data_dir}/ItalyPowerDemand
+# data_dir: ${paths.data_dir}/MoteStrain
+# data_dir: ${paths.data_dir}/MotionSenseHAR
+# data_dir: ${paths.data_dir}/PenDigits
+# data_dir: ${paths.data_dir}/SonyAIBORobotSurface1
+# data_dir: ${paths.data_dir}/SonyAIBORobotSurface2
+# data_dir: ${paths.data_dir}/SpokenArabicDigits
+# data_dir: ${paths.data_dir}/StarLightCurves
+# data_dir: ${paths.data_dir}/Strawberry
+# data_dir: ${paths.data_dir}/TwoLeadECG
+# data_dir: ${paths.data_dir}/TwoPatterns
+# data_dir: ${paths.data_dir}/Wafer
+
+
+save_dir: ${paths.output_dir}/datamodule
+feature_name: signal
+target_name: target # only for synthetic dataset
+# target_name: target
+# target_name: diagnostics # only for ECG dataset
+id_name: noun_id
+# only for synthetic dataset (model calibration)
+#f_sine_sum: f_sine_sum
+train_batch_size: 64
+val_batch_size: 1
+inmemory_cache_all: False
+reader_worker_count: 1
+target_encoding_method: onehot
+feature_scaling_method: standard
+select_class: null
+# select_class: [59118001] # only for ECG dataset
+# resizing_len: 0.95

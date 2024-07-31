@@ -1,0 +1,105 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - datamodule: ts_datamodule.yaml # choose datamodule with `test_dataloader()` for evaluation
+  - model: transformer.yaml
+  - logger: null
+  - trainer: default.yaml
+  - paths: default.yaml
+  - extras: default.yaml
+  - hydra: default.yaml
+
+task_name: "syn_interpret_calibration"
+
+tags: ["dev", "transformer"]
+
+# passing checkpoint path is necessary for evaluation interpretability results
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train_calibration/runs/BCE_norml1/checkpoints/epoch_165.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train_calibration/runs/BCE_norml2/checkpoints/epoch_072.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train_calibration/runs/freq_calibration1/checkpoints/epoch_041.ckpt
+ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train_calibration/runs/freq_calibration2/checkpoints/epoch_089.ckpt
+
+
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/multiruns/2023-06-10_06-14-11/4/checkpoints/epoch_266.ckpt # Transformer + syn snr20
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/multiruns/2023-06-19_01-18-17/19/checkpoints/epoch_295.ckpt # BiLSTM + syn snr20
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/multiruns/2023-06-21_02-52-20/18/checkpoints/epoch_155.ckpt # CNN + syn snr20
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/runs/2023-06-23_03-24-44/checkpoints/epoch_285.ckpt # BiLSTM + syn
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/runs/2023-06-24_07-42-47/checkpoints/epoch_251.ckpt # BiLSTM + syn_nmi
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/runs/synthetic_transformer/checkpoints/epoch_291.ckpt # Transformer + syn
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/train/runs/2023-06-27_02-14-25/checkpoints/epoch_230.ckpt # CNN + syn
+
+
+# syn transformer
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_trans/checkpoints/epoch_175.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_trans_snr20/checkpoints/epoch_066.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_trans_snr15/checkpoints/epoch_057.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_trans_snr10/checkpoints/epoch_038.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_trans_snr5/checkpoints/epoch_034.ckpt
+
+# syn cnn
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_cnn/checkpoints/epoch_084.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_cnn_snr20/checkpoints/epoch_120.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_cnn_snr15/checkpoints/epoch_147.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_cnn_snr10/checkpoints/epoch_135.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_cnn_snr5/checkpoints/epoch_143.ckpt
+
+# syn bilstm
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_bilstm/checkpoints/epoch_241.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_bilstm_snr20/checkpoints/epoch_284.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_bilstm_snr15/checkpoints/epoch_280.ckpt
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/syn_train/runs/syn_10percent_bilstm_snr10/checkpoints/epoch_219.ckpt
+
+
+## ucr dataset
+# MotionSenseHAR
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/MotionSenseHAR_train/runs/cnn/checkpoints/epoch_042.ckpt # CNN + MotionSenseHAR
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/MotionSenseHAR_train/runs/bilstm/checkpoints/epoch_165.ckpt # BiLSTM + MotionSenseHAR
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/MotionSenseHAR_train/runs/trans/checkpoints/epoch_030.ckpt # Transformer + MotionSenseHAR
+
+
+## Already DONE
+# PenDigits
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_PenDigits_train/runs/trans/checkpoints/epoch_101.ckpt # Transformer + PenDigits
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_PenDigits_train/runs/cnn/checkpoints/epoch_165.ckpt # CNN + PenDigits
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_PenDigits_train/runs/bilstm/checkpoints/epoch_124.ckpt # BiLSTM + PenDigits
+
+# SpokenArabicDigits
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_SpokenArabicDigits_train/runs/trans/checkpoints/epoch_114.ckpt # Transformer + SpokenArabicDigits  
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_SpokenArabicDigits_train/runs/cnn/checkpoints/epoch_124.ckpt # CNN + SpokenArabicDigits
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_SpokenArabicDigits_train/runs/bilstm/checkpoints/epoch_119.ckpt # BiLSTM + SpokenArabicDigits
+
+# FordA
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_FordA_train/runs/bilstm/checkpoints/epoch_158.ckpt # BiLSTM + FordA
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_FordA_train/runs/cnn/checkpoints/epoch_122.ckpt # CNN + FordA
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/UCR_FordA_train/runs/trans/checkpoints/epoch_121.ckpt # Transformer + FordA
+
+# EMOPain
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/EMOPain_train/runs/cnn/checkpoints/epoch_061.ckpt # CNN + EMOPain
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/EMOPain_train/runs/bilstm/checkpoints/epoch_090.ckpt # BiLSTM + EMOPain
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/EMOPain_train/runs/trans/checkpoints/epoch_160.ckpt # Transformer + EMOPain
+
+# ECG
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ECG_train/runs/trans/checkpoints/epoch_026.ckpt # Transformer + ECG
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ECG_train/runs/cnn/checkpoints/epoch_127.ckpt # CNN + ECG
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ECG_train/runs/bilstm/checkpoints/epoch_158.ckpt # BiLSTM + ECG
+
+# ElectricDevices
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ElectricDevices_train/runs/cnn/checkpoints/epoch_232.ckpt # CNN + ElectricDevices
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ElectricDevices_train/runs/bilstm/checkpoints/epoch_250.ckpt # BiLSTM + ElectricDevices
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/ElectricDevices_train/runs/trans/checkpoints/epoch_116.ckpt # Transformer + ElectricDevices
+
+# SonyAIBORobotSurface1
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface1_train/runs/cnn/checkpoints/epoch_028.ckpt # CNN + SonyAIBORobotSurface1
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface1_train/runs/bilstm/checkpoints/epoch_099.ckpt # BiLSTM + SonyAIBORobotSurface1
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface1_train/runs/trans/checkpoints/epoch_059.ckpt # Transformer + SonyAIBORobotSurface1
+
+# SonyAIBORobotSurface2
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface2_train/runs/cnn/checkpoints/epoch_032.ckpt # CNN + SonyAIBORobotSurface2
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface2_train/runs/bilstm/checkpoints/epoch_097.ckpt # BiLSTM + SonyAIBORobotSurface2
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/SonyAIBORobotSurface2_train/runs/trans/checkpoints/epoch_063.ckpt # Transformer + SonyAIBORobotSurface2
+
+# GunPointAgeSpan
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/GunPointAgeSpan_train/runs/cnn/checkpoints/epoch_119.ckpt # CNN + GunPointAgeSpan
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/GunPointAgeSpan_train/runs/bilstm/checkpoints/epoch_083.ckpt # BiLSTM + GunPointAgeSpan
+# ckpt_path: /home/TimeSeries-Interpretability-Robustness/logs/GunPointAgeSpan_train/runs/trans/checkpoints/epoch_059.ckpt # Transformer + GunPointAgeSpan

@@ -1,0 +1,11 @@
+- model.optimizer.lr=0.002
+- model.optimizer.weight_decay=0.001
+- model.net.d_model=64
+- model.net.dim_feedforward=256
+- model.net.mlp_dim=64
+- model.net.nhead=4
+- model.net.nlayers=2
+- model.net.dropout=0.4
+- experiment=GunPointAgeSpan.yaml
+- logger=tensorboard
+- hparams_search=optuna.yaml

@@ -1,0 +1,58 @@
+[2024-07-12 00:05:17,560][src.utils.utils][INFO] - Enforcing tags! <cfg.extras.enforce_tags=True>
+[2024-07-12 00:05:17,565][src.utils.utils][INFO] - Printing config tree with Rich! <cfg.extras.print_config=True>
+[2024-07-12 00:05:17,566][src.utils.rich_utils][WARNING] - Field 'callbacks' not found in config. Skipping 'callbacks' config printing...
+[2024-07-12 00:05:17,566][src.utils.rich_utils][WARNING] - Field 'logger' not found in config. Skipping 'logger' config printing...
+[2024-07-12 00:05:17,606][__main__][INFO] - Instantiating datamodule <src.datamodules.time_datamodule.TimeDataModule>
+[2024-07-12 00:05:17,610][src.utils.utils][ERROR] - 
+Traceback (most recent call last):
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/utils/utils.py", line 65, in wrap
+    metric_dict, object_dict = task_func(cfg=cfg)
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/interpret.py", line 63, in evaluate_interpretability
+    datamodule.prepare_data()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 112, in prepare_data
+    self._prepare_transform()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 273, in _prepare_transform
+    self.generate_encoder()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 415, in generate_encoder
+    with self.create_train_reader(schema_fields=[self.target_name]) as reader:
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 508, in create_train_reader
+    return make_reader(
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/petastorm/reader.py", line 155, in make_reader
+    dataset_metadata.get_schema_from_dataset_url(dataset_url_or_urls, hdfs_driver=hdfs_driver,
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/petastorm/etl/dataset_metadata.py", line 402, in get_schema_from_dataset_url
+    dataset = pq.ParquetDataset(path_or_paths, filesystem=fs, validate_schema=False, metadata_nthreads=10)
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/pyarrow/parquet/core.py", line 1784, in __init__
+    self._metadata_path) = _make_manifest(
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/pyarrow/parquet/core.py", line 2271, in _make_manifest
+    raise OSError('Passed non-file path: {}'
+OSError: Passed non-file path: /Users/rishabh/TimeSeries-Interpretability-Robustness/data//syn_10percent/train
+[2024-07-12 00:05:17,614][src.utils.utils][INFO] - Output dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-05-17
+[2024-07-12 00:07:05,402][src.utils.utils][INFO] - Enforcing tags! <cfg.extras.enforce_tags=True>
+[2024-07-12 00:07:05,407][src.utils.utils][INFO] - Printing config tree with Rich! <cfg.extras.print_config=True>
+[2024-07-12 00:07:05,407][src.utils.rich_utils][WARNING] - Field 'callbacks' not found in config. Skipping 'callbacks' config printing...
+[2024-07-12 00:07:05,407][src.utils.rich_utils][WARNING] - Field 'logger' not found in config. Skipping 'logger' config printing...
+[2024-07-12 00:07:05,446][__main__][INFO] - Instantiating datamodule <src.datamodules.time_datamodule.TimeDataModule>
+[2024-07-12 00:07:05,449][src.utils.utils][ERROR] - 
+Traceback (most recent call last):
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/utils/utils.py", line 65, in wrap
+    metric_dict, object_dict = task_func(cfg=cfg)
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/interpret.py", line 63, in evaluate_interpretability
+    datamodule.prepare_data()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 112, in prepare_data
+    self._prepare_transform()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 273, in _prepare_transform
+    self.generate_encoder()
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 415, in generate_encoder
+    with self.create_train_reader(schema_fields=[self.target_name]) as reader:
+  File "/Users/rishabh/TimeSeries-Interpretability-Robustness/src/datamodules/time_datamodule.py", line 508, in create_train_reader
+    return make_reader(
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/petastorm/reader.py", line 155, in make_reader
+    dataset_metadata.get_schema_from_dataset_url(dataset_url_or_urls, hdfs_driver=hdfs_driver,
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/petastorm/etl/dataset_metadata.py", line 402, in get_schema_from_dataset_url
+    dataset = pq.ParquetDataset(path_or_paths, filesystem=fs, validate_schema=False, metadata_nthreads=10)
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/pyarrow/parquet/core.py", line 1784, in __init__
+    self._metadata_path) = _make_manifest(
+  File "/Users/rishabh/opt/anaconda3/envs/pytorchenv/lib/python3.9/site-packages/pyarrow/parquet/core.py", line 2271, in _make_manifest
+    raise OSError('Passed non-file path: {}'
+OSError: Passed non-file path: /Users/rishabh/TimeSeries-Interpretability-Robustness/data//syn_10percent/train
+[2024-07-12 00:07:05,453][src.utils.utils][INFO] - Output dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-07-05

@@ -1,0 +1,73 @@
+CONFIG
+├── datamodule
+│   └── _target_: src.datamodules.time_datamodule.TimeDataModule                                                                        
+│       data_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/data//syn_10percent                                             
+│       save_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-05-17/datamodu
+│       feature_name: signal                                                                                                            
+│       target_name: target_sum                                                                                                         
+│       id_name: noun_id                                                                                                                
+│       f_sine_sum: f_sine_sum                                                                                                          
+│       train_batch_size: 64                                                                                                            
+│       val_batch_size: 1                                                                                                               
+│       inmemory_cache_all: false                                                                                                       
+│       reader_worker_count: 1                                                                                                          
+│       target_encoding_method: onehot                                                                                                  
+│       feature_scaling_method: standard                                                                                                
+│       select_class: null                                                                                                              
+│                                                                                                                                       
+├── model
+│   └── _target_: src.models.time_module.TSModule                                                                                       
+│       feature_name: signal                                                                                                            
+│       target_name: target_sum                                                                                                         
+│       id_name: noun_id                                                                                                                
+│       save_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-05-17/datamodu
+│       optimizer:                                                                                                                      
+│         _target_: torch.optim.RAdam                                                                                                   
+│         _partial_: true                                                                                                               
+│         lr: 0.001                                                                                                                     
+│         weight_decay: 0.002                                                                                                           
+│       scheduler:                                                                                                                      
+│         _target_: torch.optim.lr_scheduler.ReduceLROnPlateau                                                                          
+│         _partial_: true                                                                                                               
+│         mode: min                                                                                                                     
+│         factor: 0.1                                                                                                                   
+│         patience: 50                                                                                                                  
+│       net:                                                                                                                            
+│         _target_: src.models.components.transformer_model.TransformerModel                                                            
+│         input_size: 0                                                                                                                 
+│         output_size: 0                                                                                                                
+│         dropout: 0                                                                                                                    
+│         d_model: 64                                                                                                                   
+│         nhead: 2                                                                                                                      
+│         dim_feedforward: 64                                                                                                           
+│         mlp_dim: 64                                                                                                                   
+│         nlayers: 3                                                                                                                    
+│                                                                                                                                       
+├── trainer
+│   └── _target_: lightning.pytorch.trainer.Trainer                                                                                     
+│       default_root_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-05-17 
+│       min_epochs: 1                                                                                                                   
+│       max_epochs: 10                                                                                                                  
+│       accelerator: cpu                                                                                                                
+│       devices: 1                                                                                                                      
+│       check_val_every_n_epoch: 1                                                                                                      
+│       deterministic: false                                                                                                            
+│                                                                                                                                       
+├── paths
+│   └── root_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness                                                                 
+│       data_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/data/                                                           
+│       log_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/                                                            
+│       output_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness/logs/syn_interpret_calibration/runs/2024-07-12_00-05-17       
+│       work_dir: /Users/rishabh/TimeSeries-Interpretability-Robustness                                                                 
+│                                                                                                                                       
+├── extras
+│   └── ignore_warnings: false                                                                                                          
+│       enforce_tags: true                                                                                                              
+│       print_config: true                                                                                                              
+│                                                                                                                                       
+├── task_name
+│   └── syn_interpret_calibration                                                                                                       
+├── tags
+│   └── ['dev', 'transformer']                                                                                                          
+└── ckpt_path
+    └── /home/TimeSeries-Interpretability-Robustness/logs/syn_train_calibration/runs/freq_calibration2/checkpoints/epoch_089.ckpt       

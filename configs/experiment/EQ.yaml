@@ -1,0 +1,43 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /datamodule: ts_datamodule.yaml
+  - override /model: cnn.yaml
+  - override /callbacks: default.yaml
+  - override /trainer: default.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["EQ", "cnn"]
+
+seed: 1234
+
+trainer:
+  min_epochs: 1
+  max_epochs: 2
+  accelerator: cpu
+
+model:
+  optimizer: 
+    _target_: torch.optim.AdamW
+    lr: 0.0005
+    weight_decay: 0.01
+  net:
+    dropout: 0.3
+    d_model: 128
+    nhead: 8
+    dim_feedforward: 512
+    mlp_dim: 128
+    nlayers: 6
+
+datamodule:
+  data_dir: ${paths.data_dir}/earth_500_45
+  feature_name: signal
+  target_name: target
+  id_name: noun_id
+  train_batch_size: 128
+  val_batch_size: 32
